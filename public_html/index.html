@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQueryアニメーション</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            div {
+                border: 1px solid gray;
+                background-color: aqua;
+                height: 100px;
+            }
+        </style>
+
+
+
+    </head>
+    <body>
+        <input type="button" id="fadeout" value="フェードアウト">
+        <input type="button" id="fadein" value="フェードイン">
+        <input type="button" id="fadetoggle" value="フェードトグル">
+        <hr>
+        <input type="button" id="slideup" value="スライドアップ">
+        <input type="button" id="slidedown" value="スライドダウン">
+        <input type="button" id="slidetoggle" value="スライドトグル">
+        <hr>
+        <input type="button" id="bigger" value="拡大、半透明化（同時に実行）">
+        <input type="button" id="smaller" value="縮小、戻す（同時に実行）">
+        <hr>
+        <input type="button" id="bigger2" value="拡大、半透明化（順に実行）">
+        <input type="button" id="smaller2" value="縮小、戻す（順に実行）">
+        
+        <hr>
+        <div>jQuery アニメーション</div>
+        <script type="text/javascript" src="js/libs/jquery/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#fadeout").click(function () {
+                    $("div").fadeOut();
+                });
+                $("#fadein").click(function () {
+                    $("div").fadeIn();
+                });
+                $("#fadetoggle").click(function () {
+                    $("div").fadeToggle();
+                });
+                $("#slideup").click(function () {
+                    $("div").slideUp();
+                });
+                $("#slidedown").click(function () {
+                    $("div").slideDown();
+                });
+                $("#slidetoggle").click(function () {
+                    $("div").slideToggle();
+                });
+                $("#bigger").click(function () {
+                    $("div").animate({
+                        height: 500,
+                        opacity: 0.3,
+                        fontSize: '5em'
+                    });
+                });
+                $("#smaller").click(function () {
+                    $("div").animate({
+                        height: 100,
+                        opacity: 1,
+                        fontSize: '1em'
+                    });
+                });
+
+                $("#bigger2").click(function () {
+                    $("div").animate({
+                        height: 500
+                    }).animate({
+                        fontSize: '5em'
+                    }).animate({
+                        opacity: 0.3
+                    });
+                });
+                $("#smaller2").click(function () {
+                    $("div").animate({
+                        opacity: 1
+                    }).animate({
+                        fontSize: '1em'
+                    }).animate({
+                        height: 100
+                    });
+                });
+
+            });
+        </script>
+    </body>
+</html>
